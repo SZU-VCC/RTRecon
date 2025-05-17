@@ -75,9 +75,9 @@
 
   <!-- 点击切换播放的视频列表 -->
   <ul id="videolist">
-    <li data-src="assets/RealRecon_demo_1.mp4" class="active">Demo_1</li>
-    <li data-src="assets/RealRecon_demo_2.mp4">Demo_2</li>
-    <li data-src="assets/RealRecon_demo_3.mp4">Demo_3</li>
+    <li data-src="https://youtu.be/t4Y_ba83do0" class="active">Demo_1</li>
+    <li data-src="https://youtu.be/bxgGxpoeJQk">Demo_2</li>
+    <li data-src="https://youtu.be/fvawxgCCN40">Demo_3</li>
   </ul>
 </div>
 
