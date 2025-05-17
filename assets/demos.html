@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>顺序自动播放示例</title>
+</head>
+<body>
+  <video
+    id="player"
+    controls
+    autoplay
+    style="min-width:640px;min-height:360px;"
+></video>
+<script>
+(function() {
+    const playlist = [
+    'RealRecon_demo_1.mp4',
+    'RealRecon_demo_2.mp4',
+    'RealRecon_demo_3.mp4',
+    ];
+    const player = document.getElementById('player');
+    let idx = 0;
+
+    // 播放第一条
+    player.src = playlist[idx];
+    player.play();
+
+    player.addEventListener('ended', () => {
+    idx++;
+    if (idx < playlist.length) {
+        player.src = playlist[idx];
+        player.play();
+    }
+    });
+})();
+</script>
+</body>
+</html>
