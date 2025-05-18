@@ -139,7 +139,7 @@ roslaunch  fusion_recon fusion_recon.launch
 rosbag play /path/to/YOURBAG.bag
 ```
 <details>
-  <summary>:heavy_exclamation_mark: Tips</summary>
+  <summary style="text-indent:1em;">:heavy_exclamation_mark: Tips</summary>
 
 > **If your system fails to operate as expected, please proceed with the following diagnostic steps:**  
 > 1. Inspect the TF tree and verify that the world frame is set to either ```/odom``` or ```/map```; You can use the following command to unify the frames: \
