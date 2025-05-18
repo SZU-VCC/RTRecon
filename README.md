@@ -2,8 +2,9 @@
 # Real-Time Spatial Reasoning by Mobile Robots for Reconstruction and Navigation in Dynamic LiDAR Scenes
 
 <a href="https://wiki.ros.org/noetic"><img alt="Static Badge" src="https://img.shields.io/badge/ROS-Noetic-white?logo=ros&logoSize=auto&labelColor=%2322314E&color=%23F5F5F5"></a>
-<a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6979"><img alt="Static Badge" src="https://img.shields.io/badge/-TITS-white?style=flat&logo=ieee&logoSize=auto&labelColor=%2300629B&color=%23F5F5F5"></a>
 <a href="LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/SZU-VCC/RTRecon"></a>
+
+<!-- <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6979"><img alt="Static Badge" src="https://img.shields.io/badge/-TITS-white?style=flat&logo=ieee&logoSize=auto&labelColor=%2300629B&color=%23F5F5F5"></a> -->
 
 <!-- <a href="https://github.com/huggingface/accelerate"><img alt="Accelerate" src="https://img.shields.io/badge/Accelerate-ffd21e?style=for-the-badge&logo=Accelerate&logoColor=white"></a> -->
 <!-- <a href="https://wandb.ai/site"><img alt="WandB" src="https://img.shields.io/badge/Weights_&_Biases-FFBE00?style=for-the-badge&logo=WeightsAndBiases&logoColor=white"></a> -->
@@ -56,19 +57,13 @@ Our project is based on ROS Noetic. Please install ROS first on Ubuntu 20.04 Fol
 <details>
   <summary>:arrow_forward: Install Ceres Solver with bash</summary>
 
-    # git ceres-solver1.14.0
-    git clone --branch ceres-solver-1.14.0 --single-branch https://github.com/LogicT5/Tools.git ceres-solver-1.14.0
-    # CMake
-    sudo apt-get install cmake
-    # google-glog + gflags
-    sudo apt-get install libgoogle-glog-dev libgflags-dev
-    # Use ATLAS for BLAS & LAPACK
-    sudo apt-get install libatlas-base-dev
-    # Eigen3
-    sudo apt-get install libeigen3-dev
-    # SuiteSparse (optional)
-    sudo apt-get install libsuitesparse-dev
-    #
+    git clone --branch ceres-solver-1.14.0 --single-branch https://github.com/LogicT5/Tools.git ceres-solver-1.14.0  # git ceres-solver1.14.0
+    sudo apt-get install cmake # CMake
+    sudo apt-get install libgoogle-glog-dev libgflags-dev # google-glog + gflags
+    sudo apt-get install libatlas-base-dev # Use ATLAS for BLAS & LAPACK
+    sudo apt-get install libeigen3-dev # Eigen3
+    sudo apt-get install libsuitesparse-dev # SuiteSparse (optional)
+    # install 
     tar -zxvf ceres-solver-1.14.0.tar.gz -C ./ceres && cd ceres
     # build
     mkdir build && cd build
@@ -97,6 +92,18 @@ Our project is based on ROS Noetic. Please install ROS first on Ubuntu 20.04 Fol
 
 (4) **Install Embree**, refer to [Intel Embree](https://www.embree.org/).
 
+<!-- (5) **Install GLOG**, refer to the [GLOG](https://github.com/google/glog.git).
+<details>
+  <summary>:arrow_forward: Install PCL with bash</summary>
+
+    git clone https://github.com/google/glog/releases/tag/v0.7.1 glog #Clone the repository and change into source directory.
+    cd glog
+    cmake -S . -B build -G "Unix Makefiles" #Run CMake to configure the build tree.
+    cmake --build build #Generated files can be used to compile the project.
+    cmake --build build --target test #Test the build software (optional).
+    cmake --build build --target install #Install the built files (optional).
+
+</details> -->
 
 ## Usage
 
