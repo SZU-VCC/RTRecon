@@ -38,9 +38,9 @@ Our accompanying videos are now available on **YouTube** (click below images to 
  <!-- and [**Bilibili**]() -->
 
 <div align="center">
-    <a href="https://www.youtube.com/watch?v=t4Y_ba83do0&list=PL0kFXLVQr3BXX21FbksfL5wbAzqrE98lV" target="_blank">
+    <a href="https://www.youtube.com/watch?v=WnCWvNqdtnA&list=PL0kFXLVQr3BXX21FbksfL5wbAzqrE98lV" target="_blank">
         <!-- <video src="assets/RealRecon_demo_start.mp4" alt="video" style="min-width: 640px; min-height: 360px;"   autoplay loop ></video> -->
-        <img src="assets/RealRecon_demo_start.gif" alt="video" style="min-width: 640px; min-height: 360px;"   autoplay loop />
+        <img src="assets/RealRecon_demo_start.gif" alt="img" style="min-width: 640px; min-height: 360px;"/>
     </a>
 </div>
 
@@ -158,4 +158,4 @@ If you find our work useful for your research, please consider citing the follow
 }
 ```
 ## :email: Contact
-This repo is currently maintained by Huan Tian and is for academic research use only. Discussions and questions are welcome via thndy000@gmail.com. 
+This repo is currently maintained by Huan Tian and is for academic research use only. Discussions and questions are welcome via huantian55@gmail.com. 
