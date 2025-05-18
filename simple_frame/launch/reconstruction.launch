@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!--
+Software License Agreement (BSD)
+
+\file      reconstruction.launch
+\authors   Pengdi Huang <alualu628628@163.com>
+\copyright Copyright (c) 2022, 05, All rights reserved.
+
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WAR-
+RANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, IN-
+DIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<launch>
+
+    <arg name="sf_output_path" default="" />
+
+    <!-- use aloam -->
+    <arg name="sub_odom_topic" default="/aloam/velodyne_cloud_registered" />
+    <arg name="sub_cloud_topic" default="/aloam/aft_mapped_to_init" />
+
+    <!-- lidar type -->
+    <!-- 雷达类型，确定其数据包解包方式 [Velodyne[VLP16 HDL32] Hesai[Pandar40] OTHER[SLAM 或其他数据来源] ]-->
+    <arg name="lidar_type" default="VLP16"/>
+    <arg name="lidar_frame_id" default="lidar_sensor_VLP16"/>
+    <arg name="base_link_frame_id" default="base_link"/>
+    <arg name="odom_frame_id" default="odom"/>
+
+    <!-- in-outdoor -->
+    <arg if="$(eval arg('lidar_type') == 'OTHER')" name="lidar_line_min" default="0" />
+    <arg if="$(eval arg('lidar_type') == 'OTHER')" name="lidar_line_max" default="15" />
+    
+    <arg name="pub_cloud_normal_topic" default="/frame_recon/frame_cloudnormals" />
+    <arg name="pub_additional_points_topic" default="/frame_recon/additional_points" />
+
+    <arg name="pub_frame_mesh_topic" default="/frame_recon/frame_meshs" />
+    <arg name="pub_frame_mesh_algo_topic" default="/frame_recon/frame_mesh_algo" />
+    <arg name="pub_frame_mesh_alog_view_topic" default="/frame_recon/frame_mesh_algo_view" />
+
+    <!-- 点云帧的采样率，每sample_pcframe_num帧c重建一次 -->
+    <arg name="sample_pcframe_num"  default="1" />
+    <!-- step value in “for” point cloud,  larger means fewer points-->
+    <!-- 当输入点云中点的数量超过20000时，才触发采样， 采样点数量为 points_size / sample_inputpoints_num -->
+    <arg name="sample_inputpoints_num"  default="4" />
+    <!-- 单帧分块的数量 -->
+    <arg name="sector_num"  default="12" /> 
+    <arg name="viewp_zoffset" default="1.2"/> 
+
+    <arg name="is_multi_thread" default="true"/>
+    <arg name="is_debug" default="false" />
+
+    <arg name="use_ghpr" default="true"/>
+    <!-- simple reconstruction (Adjacency method)-->
+    <arg name="show_confidence" default="false"/>
+    <arg name="combine_clouds" default="false"/>
+
+    <!-- frame_reconstruction node in frame_reconstruction pkg-->
+    <node name="simple_frame" pkg="simple_frame" type="simple_frame" output="screen">
+        <!-- parameters-->	
+        <param name="sf_output_path" type="string" value="$(arg sf_output_path)"  />
+        <!-- about frame -->
+        <param name="lidar_frame_id" type="string" value="$(arg lidar_frame_id)" />
+        <param name="base_link_frame_id" type="string" value="$(arg base_link_frame_id)" />
+        <param name="odom_frame_id" type="string" value="$(arg odom_frame_id)" />
+        <!-- about Lidar -->
+        <param name="lidar_type" type="string" value="$(arg lidar_type)" />
+        <!-- 如果 lidar_type 是 OTHER，才加载 lidar_line_min 和 lidar_line_max -->
+        <!-- 只有当 lidar_type 为 SLAM 时，才加载以下参数 -->
+        <param if="$(eval arg('lidar_type') == 'OTHER')" name="lidar_line_min" type="int" value="$(arg lidar_line_min)" />
+        <param if="$(eval arg('lidar_type') == 'OTHER')" name="lidar_line_max" type="int" value="$(arg lidar_line_max)" />
+        <!-- define input topic name-->
+		<param name="sub_odom_topic" type="string" value="$(arg sub_odom_topic)" />
+		<param name="sub_cloud_topic" type="string" value="$(arg sub_cloud_topic)" />
+        <!-- define output topic name-->
+        <param name="pub_cloud_normal_topic" type="string" value="$(arg pub_cloud_normal_topic)" />
+        <param name="pub_additional_points_topic" type="string" value="$(arg pub_additional_points_topic)" />
+        <param name="pub_frame_mesh_topic" type="string" value="$(arg pub_frame_mesh_topic)" />
+        <param name="pub_frame_mesh_algo_topic" type="string" value="$(arg pub_frame_mesh_algo_topic)" />
+        <param name="pub_frame_mesh_alog_view_topic" type="string" value="$(arg pub_frame_mesh_alog_view_topic)" />
+        
+        <!-- sampling number of pointcloud frame -->
+	    <param name="sample_pcframe_num" type="int" value="$(arg sample_pcframe_num)" />
+        <!-- sampling number of points per frame -->
+	    <param name="sample_inputpoints_num"  type="int" value="$(arg sample_inputpoints_num)" />
+        <!-- sector number of points per frame -->
+        <param name="sector_num"  type="int" value="$(arg sector_num)" />
+	    <!-- height of viewpoint -->
+        <param name="viewp_zoffset" type="double" value="$(arg viewp_zoffset)"/>
+      
+        <param name="is_multi_thread" type="bool" value="$(arg is_multi_thread)" />
+        <!-- Whether to display debug information -->
+        <param name="is_debug" type="bool" value="$(arg is_debug)" />
+
+        <param name="use_ghpr" type="bool" value="$(arg use_ghpr)" />
+        <!-- Running SimpleRecon if use_ghpr is false , The following parameters are specific to SimpleRecon -->
+        <param name="show_confidence" type="bool" value="$(arg show_confidence)" /> 
+        <param name="combine_clouds" type="bool" value="$(arg combine_clouds)" />
+	</node>
+
+</launch>
