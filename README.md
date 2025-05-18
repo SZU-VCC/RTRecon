@@ -23,7 +23,7 @@
 
 
 <!-- ### [Project Page](https://vcc.tech/research/2025/CLRWire) | [Paper (ArXiv)](https://www.arxiv.org/abs/2504.19174) -->
-### [Paper (ArXiv) (Will be improved later)]()
+### [Paper (ArXiv)(Will be improved later)]()
 
 <img src='assets/overview.png'/>
 
@@ -118,23 +118,23 @@ source ~/catkin_ws/devel/setup.bash
 ### Run with bag
 Start the following nodes in sequence. The ```simple_frame``` is used for reconstruct single-frame scan, ```hash_fusion``` is for marking free space from a single frame, fusing the LoS distance field between multiple frames, and detecting and removing moving objects. ```fusion_recon``` is used for multi-frame reconstruction.
 
-1. :arrow_forward:Start the SLAM node, example as ALOM: 
+1. Start the SLAM node, example as ALOM: 
 ```
 roslaunch  aloam_velodyne aloam_velodyne.launch
 ```
-2. :arrow_forward:Start the ```simple_frame``` node: 
+2. Start the ```simple_frame``` node: 
 ```
 roslaunch  simple_frame reconstruction.launch
 ```
-3. :arrow_forward:Start the ```hash_fusion``` node: 
+3. Start the ```hash_fusion``` node: 
 ```
 roslaunch  hash_fusion hash_fusion.launch
 ```
-4. :arrow_forward:Start the ```fusion_recon``` node: 
+4. Start the ```fusion_recon``` node: 
 ```
 roslaunch  fusion_recon fusion_recon.launch
 ```
-5. :arrow_forward:Start playing a bag: 
+5. Start playing a bag: 
 ```
 rosbag play /path/to/YOURBAG.bag
 ```
