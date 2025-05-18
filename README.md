@@ -40,7 +40,7 @@ Our accompanying videos are now available on **YouTube** (click below images to 
 <div align="center">
     <a href="https://www.youtube.com/watch?v=t4Y_ba83do0&list=PL0kFXLVQr3BXX21FbksfL5wbAzqrE98lV" target="_blank">
         <!-- <video src="assets/RealRecon_demo_start.mp4" alt="video" style="min-width: 640px; min-height: 360px;"   autoplay loop ></video> -->
-        <img src="assets/RealRecon_start.gif" alt="video" style="min-width: 640px; min-height: 360px;"   autoplay loop />
+        <img src="assets/RealRecon_demo_start.gif" alt="video" style="min-width: 640px; min-height: 360px;"   autoplay loop />
     </a>
 </div>
 
