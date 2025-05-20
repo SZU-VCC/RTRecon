@@ -24,7 +24,7 @@
 
 
 <!-- ### [Project Page](https://vcc.tech/research/2025/CLRWire) | [Paper (ArXiv)](https://www.arxiv.org/abs/2504.19174) -->
-### [Paper (ArXiv)(Will be improved later)]()
+### [Paper (ArXiv)](https://arxiv.org/abs/2505.12267)
 
 <img src='assets/overview.png'/>
 
@@ -159,9 +159,13 @@ rosbag play /path/to/YOURBAG.bag
 ## :notebook_with_decorative_cover: Citation
 If you find our work useful for your research, please consider citing the following papers(Will be improved later) :
 ```
-@article{RTRecon,
-    author={Pengdi Huang and Mingyang Wang and Huan Tian and Minglun Gong and Hao Zhang and Hui Huang},
-    title={Real-Time Spatial Reasoning by Mobile Robots for Reconstruction and Navigation in Dynamic LiDAR Scenes}
+@misc{huang2025realtimespatialreasoningmobile,
+      title={Real-Time Spatial Reasoning by Mobile Robots for Reconstruction and Navigation in Dynamic LiDAR Scenes}, 
+      author={Pengdi Huang and Mingyang Wang and Huan Tian and Minglun Gong and Hao Zhang and Hui Huang},
+      year={2025},
+      eprint={2505.12267},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO}
 }
 ```
 ## :email: Contact
