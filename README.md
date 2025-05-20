@@ -29,11 +29,6 @@
 <img src='assets/overview.png'/>
 
 ## :movie_camera:Demos
-<!-- <video src="assets/RealRecon_demo_1.mp4" controls="controls" style="min-width: 640px; min-height: 360px;"></video> -->
-
-<!-- <video src="assets/RealRecon_demo_2.mp4" controls="controls" style="min-width: 640px; min-height: 360px;"></video> -->
-
-<!-- <video src="assets/RealRecon_demo_3.mp4" controls="controls" style="min-width: 640px; min-height: 360px;"></video> -->
 
 Our accompanying videos are now available on **YouTube** (click below images to open).
  <!-- and [**Bilibili**]() -->
@@ -165,7 +160,8 @@ If you find our work useful for your research, please consider citing the follow
       year={2025},
       eprint={2505.12267},
       archivePrefix={arXiv},
-      primaryClass={cs.RO}
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2505.12267}, 
 }
 ```
 ## :email: Contact
