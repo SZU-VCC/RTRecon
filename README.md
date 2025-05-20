@@ -157,7 +157,7 @@ rosbag play /path/to/YOURBAG.bag
 </details>
 
 ## :notebook_with_decorative_cover: Citation
-If you find our work useful for your research, please consider citing the following papers(Will be improved later) :
+If you find our work useful for your research, please consider citing the following papers:
 ```
 @misc{huang2025realtimespatialreasoningmobile,
       title={Real-Time Spatial Reasoning by Mobile Robots for Reconstruction and Navigation in Dynamic LiDAR Scenes}, 
